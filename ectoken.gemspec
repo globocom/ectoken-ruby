@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ectoken/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "ectoken"
+  spec.name = "verizon_token"
   spec.version = EdgeCastToken::VERSION
   spec.authors = ["Maurício de Abreu Antunes"]
   spec.email = ["mauricio.abreua@gmail.com"]

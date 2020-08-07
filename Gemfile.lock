@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ectoken (0.1.0)
+    verizon_token (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -27,9 +27,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 2.0)
-  ectoken!
   rake
   rspec (~> 3.0)
+  verizon_token!
 
 BUNDLED WITH
    2.0.2
