@@ -27,6 +27,17 @@ $ gem install ectoken
 
 This program can encrypt and decrypt Verizon Edge Cast token:
 
+```ruby
+require "ectoken"
+
+token = EdgeCastToken::Token.encrypt("12345", "ec_expire=1596103200&ec_url_allow=/images/")
+puts token
+decrypted = EdgeCastToken::Token.decrypt("12345", decrypted)
+puts decrypted
+```
+
+You can also use the command line tool:
+
 ### Encrypt
 
 ```
