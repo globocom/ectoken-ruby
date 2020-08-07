@@ -30,9 +30,12 @@ This program can encrypt and decrypt Verizon Edge Cast token:
 ```ruby
 require "ectoken"
 
-token = EdgeCastToken::Token.encrypt("0c8e886bc361f6f2fd3f29facc6eddgl48e2c6f19e49c85ac738c69a25f70581", "ec_expire=1596103200&ec_url_allow=/images/")
+key = "0c8e886bc361f6f2fd3f29facc6eddgl48e2c6f19e49c85ac738c69a25f70581"
+
+token = EdgeCastToken::Token.encrypt(key, "ec_expire=1596103200&ec_url_allow=/images/")
 puts token
-decrypted = EdgeCastToken::Token.decrypt("0c8e886bc361f6f2fd3f29facc6eddgl48e2c6f19e49c85ac738c69a25f70581", decrypted)
+
+decrypted = EdgeCastToken::Token.decrypt(key, decrypted)
 puts decrypted
 ```
 
