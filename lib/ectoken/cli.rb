@@ -26,9 +26,9 @@ module EdgeCastToken
 
       case @options[:decrypt].nil?
       when true
-        puts encrypt(@options[:key], @options[:token])
+        puts Token.encrypt(@options[:key], @options[:token])
       when false
-        puts decrypt(@options[:key], @options[:token])
+        puts Token.decrypt(@options[:key], @options[:token])
       end
     end
   end
