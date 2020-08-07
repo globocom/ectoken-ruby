@@ -1,6 +1,6 @@
 module EdgeCastToken
   class CLI
-    self.main()
+    def self.main
       @options = {}
 
       option_parser = OptionParser.new do |opts|
