@@ -20,7 +20,7 @@ $ bundle
 Or install it yourself using:
 
 ```
-$ gem install ectoken
+$ gem install verizon_token
 ```
 
 ## Usage
