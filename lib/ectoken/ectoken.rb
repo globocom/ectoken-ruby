@@ -7,7 +7,7 @@ module EdgeCastToken
   class Token
     def self.encrypt(key, token)
       digest = Digest::SHA256.digest(key)
-      cipher = OpenSSL::Cipher::AES.new(256, :GCM).encrypt
+      cipher = OpenSSL::Cipher.new('aes-256-gcm').encrypt
       iv = cipher.random_iv
       cipher.iv = iv
       cipher.key = digest
@@ -21,7 +21,7 @@ module EdgeCastToken
       decoded_token = Base64.urlsafe_decode64(token)
       iv = decoded_token[0..11]
       decipher_text = decoded_token[12..decoded_token.length-17]
-      decipher = OpenSSL::Cipher::AES.new(256, :GCM).decrypt
+      decipher = OpenSSL::Cipher.new('aes-256-gcm').decrypt
       decipher.iv = iv
       decipher.key = digest
       decipher.update(decipher_text)
