@@ -4,6 +4,11 @@ module EdgeCastToken
       @options = {}
 
       option_parser = OptionParser.new do |opts|
+        opts.on('-v', '--version', 'Show version') do |v|
+          puts EdgeCastToken::VERSION
+          exit
+        end
+
         opts.on('-k', '--key=KEY', 'Key to encrypt or decrypt') do |v|
           @options[:key] = v
         end
