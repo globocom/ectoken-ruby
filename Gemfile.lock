@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    verizon_token (0.2.1)
+    verizon_token (0.2.2)
 
 GEM
   remote: https://rubygems.org/
