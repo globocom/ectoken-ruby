@@ -8,7 +8,7 @@ Encryptor/decryptor for Verizon's ectoken
 Add this line to your application's Gemfile:
 
 ```
-gem 'ectoken'
+gem 'verizon_token'
 ```
 
 And then execute:
