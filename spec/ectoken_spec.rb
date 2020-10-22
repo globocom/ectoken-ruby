@@ -11,6 +11,14 @@ RSpec.describe EdgeCastToken do
     expect(EdgeCastToken::Token.encrypt(ENCRYPTION_KEY, "ec_expire=1597190399")).not_to be_empty
   end
 
+  it "can encrypt a token with padding" do
+    expect(EdgeCastToken::Token.encrypt(ENCRYPTION_KEY, "ec_url_allow=/foo/bar")).to end_with("=")
+  end
+
+  it "can encrypt a token without padding" do
+    expect(EdgeCastToken::Token.encrypt(ENCRYPTION_KEY, "ec_url_allow=/foo/bar", false)).to_not end_with("=")
+  end
+
   it "can decrypt a token" do
     token = EdgeCastToken::Token.encrypt(ENCRYPTION_KEY, "ec_expire=1597190399&ec_url_allow=/foo/bar")
     expect(EdgeCastToken::Token.decrypt(ENCRYPTION_KEY, token)).to eq("ec_expire=1597190399&ec_url_allow=/foo/bar")

@@ -5,7 +5,7 @@ require 'optparse'
 
 module EdgeCastToken
   class Token
-    def self.encrypt(key, token)
+    def self.encrypt(key, token, padding = true)
       digest = Digest::SHA256.digest(key)
       cipher = OpenSSL::Cipher.new('aes-256-gcm').encrypt
       iv = cipher.random_iv
@@ -13,7 +13,7 @@ module EdgeCastToken
       cipher.key = digest
       cipher_text = cipher.update(token) + cipher.final
       cipher_with_iv = iv + cipher_text + cipher.auth_tag
-      Base64.urlsafe_encode64(cipher_with_iv)
+      Base64.urlsafe_encode64(cipher_with_iv, padding: padding)
     end
 
     def self.decrypt(key, token)
